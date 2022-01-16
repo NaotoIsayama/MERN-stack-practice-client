@@ -4,6 +4,7 @@ export default makeStyles(() => ({
     appBar: {
         borderRadius: 15,
         margin: '30px',
+        marginTop: '30px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

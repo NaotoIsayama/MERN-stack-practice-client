@@ -1,9 +1,31 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import axios from 'axios';
 
-export default function BasicTextFields() {
+//Note that it is good practice to start the name of a react component with a capital
+export default function CreateStudent() {
+
+  const [student, setStudent] =  useState({
+    registrationNum: null,
+    studentName: '',
+    grade: '',
+    section: '',
+  });
+
+  const createStudent = () => {
+    axios.post('http://localhost:4999/student', student)
+
+
+
+
+  }
+
   return (
+    <>
+      <h2> Create Students </h2>
     <Box
       component="form"
       sx={{
@@ -12,7 +34,14 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="outlined-basic" label="Enter Name" variant="outlined" value={student.studentName} onChange={(event) => setStudent({ ...student, studentName: event.target.value})}/>
+      <TextField id="outlined-basic" label="Enter Registration No." variant="outlined" value={student.registrationNum} onChange={(event) => setStudent({ ...student, registrationNum: event.target.value})}/>
+      <TextField id="outlined-basic" label="Enter Grade" variant="outlined" value={student.grade} onChange={(event) => setStudent({ ...student, grade: event.target.value})}/>
+      <TextField id="outlined-basic" label="Enter Section" variant="outlined" value={student.section} onChange={(event) => setStudent({ ...student, section: event.target.value})}/>
+
+      <Button variant="contained" onClick={createStudent}>Create</Button>
     </Box>
+    
+    </>
   );
 }
