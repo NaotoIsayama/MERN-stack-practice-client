@@ -1,7 +1,6 @@
 
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import './App.css';
-import { mergeClasses } from '@material-ui/styles';
 import Student from './components/showStudent/showStudent.js';
 import Create from './components/createStudent/createStudent.js';
 import useStyles from './styles.js';
@@ -16,7 +15,7 @@ function App() {
         </AppBar>
         <Grow in>
           <Container>
-            <Grid container justify="space-between" alignItems='stretch'>
+            <Grid container justifyContent="space-between" alignItems='stretch'>
               <Grid item xs={12} sm={7}>
                 <AppBar className={classes.appBar} position="static" color="inherit">
                   <Student/>

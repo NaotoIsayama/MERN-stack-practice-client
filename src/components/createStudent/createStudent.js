@@ -9,18 +9,15 @@ import axios from 'axios';
 export default function CreateStudent() {
 
   const [student, setStudent] =  useState({
-    registrationNum: null,
+    registrationNum: 0,
     studentName: '',
     grade: '',
-    section: '',
+    section: ''
   });
 
-  const createStudent = () => {
-    axios.post('http://localhost:4999/student', student)
 
-
-
-
+  const create = () => {
+    axios.post('http://localhost:5000/studentRoute', student);
   }
 
   return (
@@ -34,12 +31,12 @@ export default function CreateStudent() {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Enter Name" variant="outlined" value={student.studentName} onChange={(event) => setStudent({ ...student, studentName: event.target.value})}/>
       <TextField id="outlined-basic" label="Enter Registration No." variant="outlined" value={student.registrationNum} onChange={(event) => setStudent({ ...student, registrationNum: event.target.value})}/>
+      <TextField id="outlined-basic" label="Enter Name" variant="outlined" value={student.studentName} onChange={(event) => setStudent({ ...student, studentName: event.target.value})}/>
       <TextField id="outlined-basic" label="Enter Grade" variant="outlined" value={student.grade} onChange={(event) => setStudent({ ...student, grade: event.target.value})}/>
       <TextField id="outlined-basic" label="Enter Section" variant="outlined" value={student.section} onChange={(event) => setStudent({ ...student, section: event.target.value})}/>
 
-      <Button variant="contained" onClick={createStudent}>Create</Button>
+      <Button variant="contained" onClick={create}>Create</Button>
     </Box>
     
     </>
