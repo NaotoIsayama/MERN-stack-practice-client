@@ -9,7 +9,7 @@ import axios from 'axios';
 export default function CreateStudent() {
 
   const [student, setStudent] =  useState({
-    registrationNum: 0,
+    registrationNum: null,
     studentName: '',
     grade: '',
     section: ''
