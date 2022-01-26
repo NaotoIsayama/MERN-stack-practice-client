@@ -17,7 +17,10 @@ export default function CreateStudent() {
 
 
   const create = () => {
-    axios.post('http://localhost:5000/studentRoute', student);
+    axios.post('http://localhost:5000/studentRoute', student).then( () => {
+      //this following line reloads the page automatically
+      window.location.reload(false);
+    });
   }
 
   return (
